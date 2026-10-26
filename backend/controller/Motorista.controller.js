@@ -170,11 +170,11 @@ const Atualizar = async (req, res) => {
         }
 
         await Motorista.update(dadosAtualizado,{where: {codMotorista: id}})
-        return 
-
+        return res.status(200).json({message:'Operação realizada com sucesso'})
     } catch (err) {
-
+      req.status(500).json({message:'Erro ao realizar a operação'})
+      console.error('Erro ao realizar a operação', err)
     }
 }
 
-module.exports = { Cadastrar }
+module.exports = { Cadastrar, Listar, ConsultarCod, ConsultarNome, Apagar, Atualizar }
