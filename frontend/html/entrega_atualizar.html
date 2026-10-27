@@ -16,7 +16,7 @@
     <main>
         <h1>Atualizar Entrega</h1>
         <form>
-            <label for="id">Código do Carga</label><br>
+            <label for="id">Código da Entrega</label><br>
             <input type="number" id="id" required><br><br>
 
             <label for="cidadeDestino">Cidade Destino</label><br>
@@ -24,23 +24,20 @@
 
             <label for="status">Status</label><br>
             <select name="status" id="status">
-                <option value=""></option>
-                
+                <option value="ENTREGUE">ENTREGUE</option>
+                <option value="TRANSITO">TRANSITO</option>
             </select>
 
-            <label for="senha">Nova Senha</label><br>
-            <input type="password" id="senha"><br><br>
+            <label for="data">Nova data</label><br>
+            <input type="date" id="data"><br><br>
 
-            <label for="cpf">CPF (11 dígitos)</label><br>
-            <input type="text" id="cpf" maxlength="11"><br><br>
+            <label for="hora">hora</label><br>
+            <input type="time" id="hora" ><br><br>
 
-            <label for="endereco">Endereço</label><br>
-            <input type="text" id="endereco"><br><br>
+            <label for="idCarga">Codigo da carga</label><br>
+            <input type="number" id="idCarga"><br><br>
 
-            <label for="celular">Celular</label><br>
-            <input type="text" id="celular"><br><br>
-
-            <button id="btn_atualizar">Atualizar</button>
+            <button type="button" id="btn_atualizar">Atualizar</button>
         </form>
         <div id="resposta" class="resposta"></div>
     </main>

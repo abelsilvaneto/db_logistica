@@ -13,8 +13,8 @@ btn_cadastrar.addEventListener('click', (e) => {
 
     const valores = {
         descricao: document.getElementById('descricao').value,
-        peso: Number(document.getElementById('peso').value),
-        volume: Number(document.getElementById('volume').value),
+        peso: document.getElementById('peso').value,
+        volume: document.getElementById('volume').value,
         codRastreio: document.getElementById('codRastreio').value,
         idMotorista: Number(document.getElementById('idMotorista').value)
     }

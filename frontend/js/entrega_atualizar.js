@@ -1,0 +1,40 @@
+const token = localStorage.getItem('token')
+
+if (!token) {
+    location.href = '../index.html'
+}
+
+const btn_atualizar = document.getElementById('btn_atualizar')
+const resposta = document.getElementById('resposta')
+
+btn_atualizar.addEventListener('click', (e) => {
+    e.preventDefault()
+
+    const id = document.getElementById('id').value
+
+    const valores = {
+        cidadeDestino: document.getElementById('cidadeDestino').value,
+        status: document.getElementById('status').value,
+        data: document.getElementById('data').value,
+        hora: document.getElementById('hora').value,
+        idCarga: Number(document.getElementById('idCarga').value)
+    }
+
+    fetch(`http://localhost:3000/entrega/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': token
+        },
+        body: JSON.stringify(valores)
+    })
+        .then(res => res.json())
+        .then(dados => {
+            resposta.innerHTML = `<p>${dados.message}</p>`
+            document.querySelector('form').reset()
+        })
+        .catch(err => {
+            console.error('Erro ao atualizar entrega:', err)
+            resposta.innerHTML = '<p>Erro ao tentar conectar com o servidor.</p>'
+        })
+})
