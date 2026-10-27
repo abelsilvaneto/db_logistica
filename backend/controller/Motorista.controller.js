@@ -1,6 +1,5 @@
-const { where } = require('sequelize')
-const Funcionario = require('../models/Funcionario')
-const Motorista = require('../models/Funcionario')
+
+const Motorista = require('../models/Motorista')
 const cryptoJs = require('crypto-js')
 const CHAVE_SEGREDO = 'chave_baixa'
 
@@ -11,7 +10,7 @@ const Cadastrar = async (req, res) => {
         return res.status(401).json({ message: 'coloque todos os valores para continuar' })
     }
 
-    if (valor.cpf.lenght !== 11) {
+    if (valor.cpf.length !== 11) {
         return res.status(401).json({ message: 'cpf tem que ter 11 numeros' })
     }
 

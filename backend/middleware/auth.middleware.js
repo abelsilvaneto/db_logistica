@@ -6,7 +6,7 @@ function authMiddleware(req,res,next){
     console.log(token)
     
     if(!token){
-        return req.status(401).json({message: 'acesso negado token não fornecido'})
+        return res.status(401).json({message: 'acesso negado token não fornecido'})
     }
 
     try{
@@ -14,7 +14,7 @@ function authMiddleware(req,res,next){
      const dadosDescripto = bytes.toString(cryptoJs.enc.Utf8)
 
      if(!dadosDescripto){
-        return req.status(401).json({message: 'Token invalido'})
+        return res.status(401).json({message: 'Token invalido'})
      }
 
      const payload = JSON.parse(dadosDescripto)

@@ -1,0 +1,80 @@
+### 
+POST http://localhost:3000/funcionario
+Content-Type: application/json
+
+{
+    "nome": "joao",
+    "email": "joao@gmail.com",
+    "senha": "123"
+}
+
+### 
+POST http://localhost:3000/funcionario
+Content-Type: application/json
+
+{
+    "nome": "Trumna",
+    "email": "Trumna@gmail.com",
+    "senha": "123"
+}
+
+### 
+POST http://localhost:3000/funcionario
+Content-Type: application/json
+
+{
+    "nome": "Paris prime",
+    "email": "Paris@gmail.com",
+    "senha": "123"
+}
+
+###
+POST http://localhost:3000/funcionario
+Content-Type: application/json
+
+{
+    "nome": "Bramma",
+    "email": "Bramma@gmail.com",
+    "senha": "123"
+}
+
+### 
+# @name loginReq
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "email": "Trumna@gmail.com",
+    "senha": "123"
+}
+
+
+### 
+POST http://localhost:3000/motorista
+Content-Type: application/json
+Authorization: {{loginReq.response.body.token}}
+
+{
+    "nome": "velox prime do lindomar",
+    "cnh": "bolabol238347290",
+    "cpf": "12345678901",
+    "telefone": "234444444"
+}
+
+
+### 
+GET http://localhost:3000/motoristas
+Authorization: {{loginReq.response.body.token}}
+
+### 
+GET http://localhost:3000/motorista/1
+Authorization: {{loginReq.response.body.token}}
+
+### 
+GET http://localhost:3000/motorista/buscarNome/velox prime do lindomar
+Authorization: {{loginReq.response.body.token}}
+
+### 
+GET http://localhost:3000/motorista/buscarNome/Nome Inexistente
+Authorization: {{loginReq.response.body.token}}
+
